@@ -39,9 +39,7 @@ if ($_POST['username']){
 </head>
 
 <body>
-	<h1>
-		Bai xue feng hahahahahaha
-	</h1>
+	
 	<div id = "header">
 		<img src = "../images/logo.jpg" height = 100> &nbsp; &nbsp;
 		<font size="25" color="black"><b>BIZ-Tripper Online Booking System</b></font> 
