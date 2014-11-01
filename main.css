@@ -1,0 +1,190 @@
+/* CSS Document */
+/*a{
+	text-decoration:none;
+	color:#000;
+	font-weight:bold;
+	font-style:italic;
+}
+
+body{
+	width:102%;
+}
+
+h2{
+	margin:auto auto;
+	text-align:center;
+	padding: 5px;
+}
+
+.error{
+	color:#F00;
+	text-align:center;
+}
+
+input, select{
+	max-width : 400px;
+}
+*/
+
+#header{
+	background:url(images/header_bg.jpg) repeat-x;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size:24px;
+	line-height:100px;
+	vertical-align:middle;
+	padding: 10px 0px 0 10px;
+	height:100px;
+	width:100%;
+	margin: -10px -10px 0px -10px;
+	border-bottom:#000 solid 10px;
+	overflow:hidden;
+}
+
+#header img{
+	float: left;
+}
+
+#header form{
+	float: right;
+	margin-right: 50px;
+	height:30px;
+}
+
+#menu{
+	color:#999;
+	background-color:#000;
+	height:35px;
+	border-radius: 10px;
+	width:800px;
+	margin:-10px auto 0 auto;
+	overflow:hidden;
+	text-align:center;
+	float: center;
+}
+
+#menu ul{
+	width:800px;
+	margin:auto auto;
+	list-style-type:none;
+	padding :0;
+}
+
+#currLi{
+	color:#FFF !important;
+}
+
+#menu ul li{
+	padding-top:10px;
+	padding-right:25px;
+	padding-left:25px;
+	display:inline-block;
+	text-align:center;	
+	
+	font-weight:bold;
+}
+
+#menu ul li a{
+	color:#999;
+}
+
+#main{
+	color:#000;
+	background:url(images/header_bg.jpg) repeat-x;
+	height:110px;
+	border-radius: 10px;
+	width: 400px;
+	margin:-10px auto 0 auto;
+	overflow:hidden;
+	text-align:center;
+	float: center;
+}
+
+#panel{
+	border-style: none;
+}
+
+#manageUser{
+	border-radius: 20px;
+	border-width: 5px;
+	height: 110px;
+	width: 180px;
+	text-align:center;
+	float: center;	
+	font-size: 120%;
+	font-weight: bold;
+}
+
+#manageFlight{
+	border-radius: 20px;
+	border-width: 5px;
+	height: 110px;
+	width: 180px;
+	text-align:center;
+	float: center;	
+	font-size: 120%;
+	font-weight: bold;
+}
+
+#myProfile{
+	border-radius: 20px;
+	border-width: 5px;
+	height: 110px;
+	width: 180px;
+	text-align:center;
+	float: center;	
+	font-size: 120%;
+	font-weight: bold;
+}
+
+#searchFlight{
+	border-radius: 20px;
+	border-width: 5px;
+	height: 110px;
+	width: 180px;
+	text-align:center;
+	float: center;	
+	font-size: 120%;
+	font-weight: bold;
+}
+
+
+
+
+#userButton{
+	border-radius: 20px;
+	border-width: 5px;
+	height: 90px;
+	width: 150px;
+	text-align:center;
+	float: center;	
+	font-size: 120%;
+	font-weight: bold;
+}
+
+#logout{
+	border-radius: 5px;
+	border-width: 3px;
+	height: 50px;
+	width: 80px;
+	text-align:center;
+	float: right;	
+	font-size: 80%;
+	font-weight: bold;
+}
+
+#submit{
+	border-radius: 5px;
+	border-width: 3px;
+	height: 50px;
+	width: 80px;
+	text-align:center;
+	float: right;	
+	font-size: 80%;
+	font-weight: bold;
+}
+
+
+.npPages a{
+	padding-right:10px;
+	padding-left:10px;
+}
