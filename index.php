@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ($_POST['username']){
+if (isset($_POST['username'])){
 
 	$user = 'root';
 	$pass = '';
@@ -26,7 +26,7 @@ if ($_POST['username']){
 		
 		$errorMsg = "<h3><center>Your Employee ID or your Password is incorrect. <br/> Please try again or contact the HR.<center></h3>";
 	}
-if($_POST['forgot']){
+if(isset($_POST['forgot'])){
 	$errorMsg =  "<h3><center>Please approach the HR with your id card to reset your password. <center></h3>";
 }
 }

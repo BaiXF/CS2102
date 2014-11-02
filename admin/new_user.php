@@ -1,14 +1,26 @@
 <?php
   // session_start();
-
-  if ($_POST['position'] && $_POST['employeeID'] && $_POST['password'] && $_POST['firstname'] && $_POST['lastname']){
     
       $user = 'root';
       $pass = '';
       $db = 'biz_tripper';
 
       $db = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to DB");
-      $errorMsg = "";
+      $error_msg = "";
+
+      if(!isset($_POST["position"]))
+        $error_msg="Enter Position Please!";
+      else if(!isset($_POST["employeeID"]))
+        $error_msg="Enter EmployeeID Please!";
+      else if(!isset($_POST["password"]))
+        $error_msg="Enter Password Please!";
+      else if(!isset($_POST["firstname"]))
+        $error_msg="Enter First Name Please!";
+      else if(!isset($_POST["lastname"]))
+        $error_msg="Enter Last Name Please!";
+      else if(!isset($_POST["passportNo"]))
+        $error_msg="Enter Passport Number Please!";
+      else{
 
       $position     =  strip_tags($_POST["position"]);
       $employeeID   =  strip_tags($_POST["employeeID"]);
@@ -22,32 +34,19 @@
       $contactNo    =  strip_tags($_POST["contactNo"]);
       $address      =  strip_tags($_POST["address"]);
       $nationality  =  strip_tags($_POST["country"]);
-      echo  $position;
-      echo $employeeID;   
-      echo $password   ;  
-      echo $firstname   ; 
-      echo $lastname     ;
-      echo $gender       ;
       
-
-      // $sql1 = "INSERT INTO employee (employeeID, pwd) VALUES ('{$employeeID}', '{$password}')";
-
-  // $sql2 = "INSERT INTO profile (employeeID, firstName, lastName ) VALUES ( 'lll','llllll','llll')";
-      $sql = "INSERT INTO test ('employee_id') VALUES ('aaaaaa')";
-
-      // $sql2 = "INSERT INTO profile (employeeID, firstName, lastName, email, address, contactNo, Nationality, sex, passportNo, dob，position ) VALUES ( '{$employeeID}', '{$firstname}','{$lastname}','{$email}', '{$address}',  '{$contactNo}', '{$nationality}'，'{$gender}', '{$passportNo}', '{$birthday}', '{$position}')"; 
+      
+      $sql1 = "INSERT INTO employee (employeeID, pwd) VALUES ('{$employeeID}', '{$password}')";
+      $sql2 = "INSERT INTO profile (employeeID, firstName, lastName, email, address, contactNo, nationality, sex, passportNo, dob, position) VALUES ('{$employeeID}','{$firstname}','{$lastname}', '{$email}', '{$address}', '{$contactNo}', '{$nationality}', '{$gender}', '{$passportNo}', '{$birthday}', '{$position}')";
       
       // mysql_query($sql1,$db) or die(mysql_error());
       // mysql_query($sql2,$db) or die(mysql_error());
-      $result1 = $db->query($sql);
+      $result1 = $db->query($sql1);
       // if ($result1==false){  die("No record inserted!"); }
-      // $result2 = $db->query($sql2);
-      // if ($result2==false){  
-      //   die(mysql_error());
+      $result2 = $db->query($sql2);
+      // if ($result1==true && $result2==false){  
+      //     $result3 = $db->query("DELETE FROM employeeID WHERE employeeID = '{$employeeID}' ");
       // }
-      //   $result3 = $db->query("DELETE FROM employeeID WHERE employeeID = '{$employeeID}' ");
-      //   die("No record inserted!"); }
-
       $db->close();
   }
 ?>
@@ -71,6 +70,8 @@
 </div>
 
 <div id="wrapper">
+<div class="error"><?php 
+    echo $error_msg; ?></div>
 
 <form action="" method="post">
 <table cellpadding="10" cellspacing="10" width="50%">
@@ -94,6 +95,10 @@
     <th scope="row">Last Name *: </th>
     <td><input name="lastname" type="text"></td>
   </tr>
+   <tr>
+    <th scope="row">Passport No *: </th>
+    <td><input name="passportNo" type="text"></td>
+  </tr>
   <tr>
     <th scope="row">Gender: </th>
     <td><select name="gender">
@@ -105,10 +110,6 @@
     <th scope="row">Birthday: </th>
     <td><input type="date" name="birthday"></td>
     </tr>
-  <tr>
-    <th scope="row">Passport No: </th>
-    <td><input name="passportNo" type="text"></td>
-  </tr>
   <tr>
     <th scope="row">Email: </th>
     <td><input type="email" name="email"></td>

@@ -1,7 +1,7 @@
 <?php
-session_start();
+// session_start();
 
-if ($_POST['username']){
+if (isset($_POST['username'])){
 
 	$user = 'root';
 	$pass = '';

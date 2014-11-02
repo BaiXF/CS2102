@@ -1,7 +1,7 @@
 <?php
-session_start();
+// session_start();
 
-	if(isset($_SESSION['username'])){
+	// if(isset($_SESSION['username'])){
       
 	    if (isset($_POST['query'])){
 
@@ -21,7 +21,7 @@ session_start();
   		else{
     		$errorMsg = "You are not logged in yet.";
   		}
-	}
+	// }
 ?>
 
 <!doctype html>

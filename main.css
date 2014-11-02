@@ -15,16 +15,18 @@ h2{
 	text-align:center;
 	padding: 5px;
 }
-
+*/
 .error{
 	color:#F00;
-	text-align:center;
+	text-align:left;
+	font-size: 24px;
+	font-weight: bold;
 }
 
 input, select{
 	max-width : 400px;
 }
-*/
+
 
 #header{
 	background:url(images/header_bg.jpg) repeat-x;
