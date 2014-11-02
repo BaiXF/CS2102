@@ -50,7 +50,7 @@ if($_POST['forgot']){
 <div id="menu">
 	<ul>
 		<li><a href="index.php" id="currLi">Login</a></li>
-    	<li><a href="admin\index_admin.php"  onMouseOver="this.style.color='#FFF';" onMouseOut="this.style.color='#CCC';">Admin Login</a></li>
+    	<li><a href="admin/index_admin.php"  onMouseOver="this.style.color='#FFF';" onMouseOut="this.style.color='#CCC';">Admin Login</a></li>
         <!-- <li><a href="register.php" onMouseOver="this.style.color='#FFF';" onMouseOut="this.style.color='#CCC';">Register</a></li> -->
     </ul>
     <br>

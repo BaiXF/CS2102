@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  // session_start();
 
   if ($_POST['position'] && $_POST['employeeID'] && $_POST['password'] && $_POST['firstname'] && $_POST['lastname']){
     
@@ -30,18 +30,21 @@
       echo $gender       ;
       
 
-      $sql1 = "INSERT INTO employee (employeeID, pwd) VALUES ('{$employeeID}', '{$password}')";
+      // $sql1 = "INSERT INTO employee (employeeID, pwd) VALUES ('{$employeeID}', '{$password}')";
 
   // $sql2 = "INSERT INTO profile (employeeID, firstName, lastName ) VALUES ( 'lll','llllll','llll')";
-       // $sql2 = "INSERT INTO profile (employeeID) VALUES ('{$employeeID}')";
+      $sql = "INSERT INTO test ('employee_id') VALUES ('aaaaaa')";
 
-       $sql2 = "INSERT INTO profile (employeeID, firstName, lastName, email, address, contactNo, Nationality, sex, passportNo, dob，position ) VALUES ( '{$employeeID}', '{$firstname}','{$lastname}','{$email}', '{$address}',  '{$contactNo}', '{$nationality}'，'{$gender}', '{$passportNo}', '{$birthday}', '{$position}')"; 
-   
-
-      $result1 = $db->query($sql1);
+      // $sql2 = "INSERT INTO profile (employeeID, firstName, lastName, email, address, contactNo, Nationality, sex, passportNo, dob，position ) VALUES ( '{$employeeID}', '{$firstname}','{$lastname}','{$email}', '{$address}',  '{$contactNo}', '{$nationality}'，'{$gender}', '{$passportNo}', '{$birthday}', '{$position}')"; 
+      
+      // mysql_query($sql1,$db) or die(mysql_error());
+      // mysql_query($sql2,$db) or die(mysql_error());
+      $result1 = $db->query($sql);
       // if ($result1==false){  die("No record inserted!"); }
-      $result2 = $db->query($sql2);
+      // $result2 = $db->query($sql2);
       // if ($result2==false){  
+      //   die(mysql_error());
+      // }
       //   $result3 = $db->query("DELETE FROM employeeID WHERE employeeID = '{$employeeID}' ");
       //   die("No record inserted!"); }
 
