@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$profpic = "images/index_wp.jpg";
 if (isset($_POST['username'])){
 
 	$user = 'root';
@@ -39,6 +39,13 @@ if(isset($_POST['forgot'])){
 	<title> BIZ-Tripper</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel = "stylesheet" type = "text/css" href=" main.css">
+	<style type="text/css">
+		body {
+			background-image:url('<?php echo $profpic;?>');
+			background-repeat:no-repeat;
+    		background-position:50% 20%;
+		}
+	</style>
 </head>
 
 <body>
