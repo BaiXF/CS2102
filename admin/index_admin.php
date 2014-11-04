@@ -43,10 +43,14 @@ if (isset($_POST['username'])){
     		background-position:50% 20%;
 		}
 	</style>
+	<!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
 </head>
 
 <body>
-	
+	<script src="js/bootstrap.min.js"></script>
 	<div id = "header">
 		<img src = "../images/logo.jpg" height = 100> &nbsp; &nbsp;
 		<font size="25" color="black"><b>BIZ-Tripper Online Booking System</b></font> 
@@ -61,25 +65,23 @@ if (isset($_POST['username'])){
     <br>
 </div>
 <br>
-<div id="main">
-<form action="" method="post" enctype="multipart/form-data">
+<div class="container">
+<form action="" method="post" enctype="multipart/form-data" class="form-signin" role="form">
 
-
-<table align="left" width="80%" border="1">
+<table align="center">
   <tr>
-    <th colspan="2" scope="row">Login</th>
+    <th class="form-signin-heading"><font color="white">Login</font></th>
     </tr>
   <tr>
-    <th scope="row">Admin ID: </th>
-    <td><input name="username" type="text" /></td>
+    <td><input name="username" type="text" class="form-control" placeholder="Admin ID" required autofocus/></td>
   </tr>
   <tr>
-    <th scope="row">Password: </th>
-    <td><input name="password" type="password" /></td>
+    <td><input name="password" type="password" class="form-control" placeholder="Password" required/></td>
   </tr>
   <tr>
-    <th scope="row">&nbsp;</th>
-    <td><input type="submit" value = "Submit" name="submit" /></td>
+    <td>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" value = "Submit" name="submit">Sign in</button>
+   </td>
   </tr>
 </table>
 </form>
