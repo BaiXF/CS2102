@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$profpic = "../images/notebook.jpg";
+
 $user = 'root';
 $pass = '';
 $db = 'biz_tripper';
@@ -74,10 +74,10 @@ $db->close();
   <link href="signin.css" rel="stylesheet">
   <style type="text/css">
   body {
-    background-image:url('<?php echo $profpic;?>');
+    background-image:url(../images/apple.jpg);
     background-repeat:no-repeat;
-    background-position:50% 0%;
-    background-size:100% 121%;
+    background-position:40% 0%;
+    background-size:121% 121%;
   }
   </style>
 </head>
@@ -257,7 +257,7 @@ $db->close();
           </td>
         </tr>
         <tr>
-          <th scope = "row" align = "right" ><p><font color="white"> *: Compulsive Area. </font></p></th>
+          <th scope = "row" align = "right" ><p><font color="IndianRed"> *: Compulsive Area. </font></p></th>
         </tr>
       </table>
     </form>
