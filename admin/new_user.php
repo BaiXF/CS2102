@@ -1,5 +1,6 @@
 <?php
-  // session_start();
+
+  session_start();
 $profpic = "../images/notebook.jpg";
 $user = 'root';
 $pass = '';
@@ -38,17 +39,24 @@ else{
 
   $sql1 = "INSERT INTO employee (employeeID, pwd) VALUES ('{$employeeID}', '{$password}')";
   $sql2 = "INSERT INTO profile (employeeID, firstName, lastName, email, address, contactNo, nationality, sex, passportNo, dob, position) VALUES ('{$employeeID}','{$firstname}','{$lastname}', '{$email}', '{$address}', '{$contactNo}', '{$nationality}', '{$gender}', '{$passportNo}', '{$birthday}', '{$position}')";
-
+  
       // mysql_query($sql1,$db) or die(mysql_error());
       // mysql_query($sql2,$db) or die(mysql_error());
   $result1 = $db->query($sql1);
       // if ($result1==false){  die("No record inserted!"); }
+
   $result2 = $db->query($sql2);
       // if ($result1==true && $result2==false){  
       //     $result3 = $db->query("DELETE FROM employeeID WHERE employeeID = '{$employeeID}' ");
       // }
-  $db->close();
-}
+    
+      if ($result1==true && $result2==true){  
+          $error_msg = "One Row Inserted!";
+      }
+
+      $db->close();
+  }
+
 ?>
 
 <!doctype html>
@@ -78,6 +86,7 @@ else{
   <img src = "../images/logo.jpg" height = 100> &nbsp; &nbsp;
   <font size="25" color="black"><b>BIZ-Tripper Online Booking System</b></font> 
   <input type="submit" align = "right" onClick="document.location.href = ('../logout.php');" value="logout" name="logout" id="logout" >
+   <input type="submit" align = "right" onClick="document.location.href = ('superuser.php');" value="back" name="back" id="logout" >
   <br>
 </div>
 -->
@@ -129,8 +138,15 @@ else{
 
         </div>
 
+
       </div>
     </nav>
+
+<div id="wrapper">
+<div class="error"><?php 
+    echo $error_msg; 
+    // $_POST = array();
+    ?></div>
 
   </div>
 </div>

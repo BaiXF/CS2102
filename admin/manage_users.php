@@ -1,7 +1,9 @@
 <?php
-// session_start();
+session_start();
 
-	// if(isset($_SESSION['username'])){
+
+if(isset($_SESSION['username'])){
+	   
 
 if (isset($_POST['query'])){
 
@@ -18,10 +20,13 @@ if (isset($_POST['query'])){
 
 	$db->close();
 } 
+
+}
 else{
 	$errorMsg = "You are not logged in yet.";
 }
-	// }
+
+
 ?>
 
 <!doctype html>
@@ -38,6 +43,19 @@ else{
 </head>
 
 <body>
+
+<!-- <div id = "sqlquery">
+<form action="" method="post">
+<table align = "center">
+<tr>	
+	<th><p><h3><center>Write your single line SQL query to quick access the database.<br> Submit with Enter Key</center></h3></p></th>
+</tr>
+<tr>
+	<th><input style="height:30px;width: 900px;font-size:14pt;" id = "box" name="query" type="text"></th>
+</tr>
+<tr>
+	<th><br/><br/> -->
+
 	<!--<div id = "header">
 		<img src = "../images/logo.jpg" height = 100> &nbsp; &nbsp;
 		<font size="25" color="black"><b>BIZ-Tripper Online Booking System</b></font> 
@@ -205,6 +223,7 @@ else{
 				<th>
 					<br/>
 					<br/>
+
 					<?php
 					global $errorMsg, $result;
 					if ($errorMsg !=""){
@@ -220,6 +239,7 @@ else{
 								while($row = $result->fetch_assoc()) {
 									print_r($row);
 									echo "<br>";
+
         				// echo "id: " . $row[""]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
 								}
 							} else {
@@ -227,7 +247,8 @@ else{
 							}
 						}
 					}
-					?></th>
+					?>
+					</th>
 				</tr>
 
 			</table> 

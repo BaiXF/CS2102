@@ -1,6 +1,10 @@
 <?php
+
 session_start();
+
+
 $profpic = "images/index_wp.jpg";
+
 if (isset($_POST['username'])){
 
 	$user = 'root';
@@ -8,27 +12,24 @@ if (isset($_POST['username'])){
 	$db = 'biz_tripper';
 
 	$db = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to DB");
+
 	$errorMsg = "";
 
 	$usname = strip_tags($_POST["username"]);
 	$paswd = strip_tags($_POST["password"]);
 	
+
 	$sql = "SELECT * FROM employee A WHERE '{$usname}' = A.employeeID and '{$paswd}' = A.pwd";	
 	$result = $db->query($sql);
 	
-	$db->close();
-	
 	if ($result->num_rows >0){
+
 		$_SESSION['username'] = $usname;
 		header("Location: users/user.php");
 	}
 	else{
-		
-		$errorMsg = "<h3><center>Your Employee ID or your Password is incorrect. <br/> Please try again or contact the HR.<center></h3>";
+		$errorMsg = "<h2><center>Your Employee ID or your Password is incorrect. <br/> Please try again or contact the HR</center></h2>";
 	}
-if(isset($_POST['forgot'])){
-	$errorMsg =  "<h3><center>Please approach the HR with your id card to reset your password. <center></h3>";
-}
 }
 ?>
 
@@ -46,9 +47,9 @@ if(isset($_POST['forgot'])){
     		background-position:50% 20%;
 		}
 	</style>
-    <!-- Bootstrap core CSS -->
+	<!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
-	<!-- Custom styles for this template -->
+    <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
 </head>
 
@@ -61,16 +62,15 @@ if(isset($_POST['forgot'])){
 </div>
 <div id="menu">
 	<ul>
-		<li><a href="index.php" id="currLi">Login</a></li>
-    	<li><a href="admin/index_admin.php"  onMouseOver="this.style.color='#FFF';" onMouseOut="this.style.color='#CCC';">Admin Login</a></li>
+		<li><a href="index.php"  id="currLi">Login</a></li>
+    	<li><a href="admin/index_admin.php" onMouseOver="this.style.color='#FFF';" onMouseOut="this.style.color='#CCC';">Admin Login</a></li>
         <!-- <li><a href="register.php" onMouseOver="this.style.color='#FFF';" onMouseOut="this.style.color='#CCC';">Register</a></li> -->
     </ul>
     <br>
 </div>
 <br>
 <div class="container">
-<form action="" method="post" enctype="multipart/form-data">
-
+<form action="" method="post" enctype="multipart/form-data" class="form-signin" role="form">
 
 <table align="center">
   <tr>
@@ -82,23 +82,21 @@ if(isset($_POST['forgot'])){
   <tr>
     <td><input name="password" type="password" class="form-control" placeholder="Password" required/></td>
   </tr>
-  <tr>
+    <tr>
     <td><br></td>
   </tr>
   <tr>
-    <td><button class="btn btn-lg btn-primary btn-block" type="submit" value = "Submit" name="submit">Sign in</button></td>
-  </tr>
-  <tr>
-    <td><button class="btn btn-lg btn-primary btn-block" type="submit" value = "Forgot Password" name="forgot">Forgot password</button></td>
+    <td>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" value = "Submit" name="submit">Sign in</button>
+   </td>
   </tr>
 </table>
 </form>
 </div>
-
 <?php
 	global $errorMsg;
 	if ($errorMsg != ""){
-		echo "<td align=center>$errorMsg</td>";
+		echo $errorMsg;
 	}
 ?>
 </body>

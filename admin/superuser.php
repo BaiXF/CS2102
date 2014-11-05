@@ -1,7 +1,8 @@
+
 <?php
 	include "../include/common.inc.php";
   session_start();
-  
+
   if(isset($_SESSION['username'])){
       
       $usname = $_SESSION['username'];
@@ -10,10 +11,10 @@
   } 
   else{
     $result = "You are not logged in yet.";
+    echo $result;
   }
 
-  ?>
-
+?>
 <!doctype html>
 <html>
 <head>
