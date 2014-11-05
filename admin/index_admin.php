@@ -25,7 +25,7 @@ if (isset($_POST['username'])){
 	if ($result->num_rows >0){
 
 		$_SESSION['username'] = $usname;
-		header("Location: superuser.php");
+		header("Location: manage_users.php");
 	}
 	else{
 		$errorMsg = "<h2><center>Your Employee ID or your Password is incorrect. <br/> Please try again or contact the HR</center></h2>";

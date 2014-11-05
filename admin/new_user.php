@@ -86,7 +86,7 @@ else{
   <img src = "../images/logo.jpg" height = 100> &nbsp; &nbsp;
   <font size="25" color="black"><b>BIZ-Tripper Online Booking System</b></font> 
   <input type="submit" align = "right" onClick="document.location.href = ('../logout.php');" value="logout" name="logout" id="logout" >
-   <input type="submit" align = "right" onClick="document.location.href = ('superuser.php');" value="back" name="back" id="logout" >
+   <input type="submit" align = "right" onClick="document.location.href = ('manage_users.php');" value="back" name="back" id="logout" >
   <br>
 </div>
 -->

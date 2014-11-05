@@ -5,7 +5,6 @@
   if(isset($_SESSION['username'])){
       
       $usname = $_SESSION['username'];
-
       $result = "Test variables: <br /> Username: ".$usname;
   } 
   else{
