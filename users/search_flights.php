@@ -47,10 +47,10 @@
         $_SESSION['rtrn'] = $return;
       }
 
-      $sql1 = "SELECT * from flights f where f.origin like '%$origin%' and f.destination like '%$destination%' and f.capacity > f.occupied and '{$departure}' IN ( select date(dept_time) from flights g WHERE g.flight_no = f.flight_no and g.origin = f.origin)";
+      $sql1 = "SELECT * from flights where origin like '%$origin%' and destination like '%$destination%' and capacity > occupied and '{$departure}' = date(dept_time)";
 
 
-      $sql2 = "SELECT * from flights f where f.origin like '%$destination%' and f.destination like '%$origin%' and f.capacity > f.occupied and '{$return}' IN ( select date(dept_time) from flights g WHERE g.flight_no = f.flight_no and g.origin = f.origin)";
+      $sql2 = "SELECT * from flights where origin like '%$destination%' and destination like '%$origin%' and capacity > occupied and '{$return}' = date(dept_time)";
 
       $result1 = $db->query($sql1);
       $result2 = $db->query($sql2);
@@ -284,6 +284,7 @@
         echo $dept_time;
 
         $sql34 = "INSERT INTO book_flight (passportNo, id, flight_no, dept_time) VALUES ('{$passport}', '{$eid}' '{$flight_d}', '{$dept_time}')";
+        echo "<br>".$sql34;
         $result34 = $db->query($sql34);
 
         $sql41 = "UPDATE flights SET occupied = occupied+1 WHERE flight_no = '{$flight_r}' AND '{$r}' = date(dept_time)";
@@ -297,6 +298,7 @@
         echo $arri_time;
 
         $sql44 = "INSERT INTO book_flight (passportNo, id, flight_no, dept_time) VALUES ('{$passport}', '{$eid}', '{$flight_r}', '{$arri_time}')";
+        echo "<br>".$sql44;
         $result44 = $db->query($sql44);
     }
     

@@ -12,12 +12,6 @@
       $error_msg = "";
   
       
-
-      $origin     =  strip_tags($_POST["origin_input"]);
-      $destination   =  strip_tags($_POST["destination_input"]);
-      $departure     =  strip_tags($_POST["departure"]);
-      $return    =  strip_tags($_POST["return"]);
-      
       $sql = "SELECT * from book_flight ORDER BY dept_time ASC";
 
       $result = $db->query($sql);
@@ -46,52 +40,6 @@
   <br>
 </div>
 
-<div id="wrapper">
-<h2>Flight Information:<h2>
-<div class="error"><?php
-     echo $error_msg; 
-  ?></div>
-
-<form action="" method="post">
-<table cellpadding="10" cellspacing="10" width="50%">
-
-  <tr>
-    <th scope="row">Origin: </th>
-    <td><input name="origin_input" type="text"></td>
-    <!-- <th scope="row">Country: </th>
-    <td><select onchange="print_state('state',this.value);" id="country" name = "ori_country"></select></td>
-    <th scope="row">City: </th>
-    <td><select name ="origin_chosen" id = "state"></select>    
-    <script language="javascript">print_country1("country");</script></td> -->
-  </tr>
-
-  <tr>
-    <th scope="row">Destination: </th>
-    <td><input name="destination_input" type="text"></td>
-    <!-- <th scope="row">Country: </th>
-    <td><select onchange="print_state('state',this.value);" id="country" name = "des_country"></select></td>
-    <th scope="row">City: </th>
-    <td><select name ="destination_chosen" id = "state"></select>
-    <script language="javascript">print_country("country");</script></td> -->
-  </tr>
-
-  <tr>
-    <th scope="row">Departure Date: </th>
-    <td><input name="departure" type="date"></td>
-  </tr>
-
-  <tr>
-    <th scope="row">Return Date: </th>
-    <td><input name="return" type="date"></td>
-  </tr>
-
-  <tr>
-    <th colspan="2" align = "center" scope="row"><input type="submit" value = "submit" name="submit"></th>
-  </tr>
-</table>
-</form>
-</div>
-
 <div id = 'results'>
 <?php  
   global $result;
@@ -109,8 +57,9 @@
         echo "</tr>";   
   while( ($row =$result->fetch_assoc()))
     {   
+        $row['index'] = $index;
         echo "<tr>";
-        echo "<td>$index</td>";
+        echo "<td>".$row['index']."</td>";
         $index = $index + 1;
         echo "<td>".$row['id']."</td>";
         echo "<td>".$row['passportNo']."</td>";
@@ -134,18 +83,41 @@
   $pass = '';
   $db = 'biz_tripper';
   $result = '';
+  global $row;
+  
+  echo $row['index'];
 
   $db = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to DB");
+  $sql1 = "DELETE FROM book_flight WHERE 1 ";
+  $empty_flag = 1;
 
   if(isset($_POST["delete_button"])){
-    if (isset($_POST["delete"])){
-      $id = strip_tags($_POST["delete"]);
-        // echo "<h1>I'm in deletion</h1>";
-        // echo $id;
-        $sql1 = "DELETE FROM employee WHERE (employeeID) = '{$id}' ";
-        $result = $db->query($sql1);
-        if ($sql){
-          echo "<h2>One row deleted.</h2>";
+    if (isset($_POST["employeeID"]) && $_POST["employeeID"]!=''){
+      $id = strip_tags($_POST["employeeID"]);
+      $sql1 =  $sql1."AND id = '{$id}' ";
+      $empty_flag = 0;
+    }
+
+    if (isset($_POST["flightNo"]) && $_POST["flightNo"]!=''){
+      $fn = strip_tags($_POST["flightNo"]);
+      $sql1 =  $sql1."AND flight_no = '{$fn}' ";
+      $empty_flag = 0;
+    }
+
+    if (isset($_POST["date"]) && $_POST["date"]!=''){
+      $dt = strip_tags($_POST["date"]);
+      $sql1 =  $sql1."AND date(dept_time) = '{$dt}' ";
+      $empty_flag = 0;
+    }
+    echo $sql1;
+    
+    if($empty_flag){
+      echo "<br><h2>Please input at least one field.</h2>";
+    }
+    else{
+        $result1 = $db->query($sql1);
+        
+        if ($sql1){
           header("Refresh:0");
         }
         else{
@@ -153,51 +125,30 @@
         }
     }
   }
-    if (isset($_POST["update_button"])){
-      if (isset($_POST["update"]) && isset($_POST["field"])){
-        $id = strip_tags($_POST["update"]);
-        $field = strip_tags($_POST["field"]);
-        $value = strip_tags($_POST["value"]);
-        echo "<h3>".$id."</h3>";
-        echo "<h3>".$field."</h3>";
-        echo "<h3>".$value."</h3>";
-        if ($field == 'password')
-          $sql2 = "UPDATE employee SET pwd = '{$value}' WHERE employeeID = '{$id}' "; 
-        else
-          $sql2 = "UPDATE profile SET {$field} = '{$value}' WHERE employeeID = '{$id}' ";         
-
-        $result = $db->query($sql2);
-        if ($sql2){
-          echo "<h2>One row updated.</h2>";
-          header("Refresh:0");
-        }
-        else{
-          echo "<h2>Cannot be updated!</h2>";
-        }
-      }
-
-    }
   
 ?>
 <div>
 <form action="" method="post">
 <table>
     <tr>
-    <th scope="row">Delete ID: </th>
-    <td><input name="delete" type="text">&nbsp; &nbsp;&nbsp; &nbsp;</td>
-    <td><input type="submit" name="delete_button" value="Delete" /></td>
-    
-  </tr>
+    <th scope="row">Empolyee ID: </th>
+    <td><input name="employeeID" type="text">&nbsp; &nbsp;&nbsp; &nbsp;</td>
+    </tr>
 
-  <tr>
-    <th scope="row">Update ID: </th>
-    <td><input name="update" type="text">&nbsp; &nbsp;&nbsp; &nbsp;</td>
-    <th scope="row">Field: </th>
-    <td><input name="field" type="text">&nbsp; &nbsp;&nbsp; &nbsp;</td>
-    <th scope="row">Value: </th>
-    <td><input name="value" type="text">&nbsp; &nbsp;&nbsp; &nbsp;</td>
-    <td><input type="submit" name="update_button" value="Update" /></td>
-  </tr>
+    <tr>
+    <th scope="row">Flight No.: </th>
+    <td><input name="flightNo" type="text">&nbsp; &nbsp;&nbsp; &nbsp;</td>
+    </tr>
+    
+    <tr>
+    <th scope="row">Date: </th>
+    <td><input name="date" type="date">&nbsp; &nbsp;&nbsp; &nbsp;</td>
+    </tr>
+    
+    <tr>
+    <td><input type="submit" name="delete_button" value="Delete" /></td>
+    </tr>
+
 </table>
 </form>
 </div>

@@ -67,11 +67,11 @@ else{
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="users.php">Home</a></li>
+            <li class="active"><a href="user.php">Home</a></li>
 
             <li><a href="./profile.php">Profile</a></li>
             <li><a href="./search_flights.php">Search for Flight</a></li>
-
+            <li><a href="./my_bookings.php">My Bookings</a></li>
             <li class="nav navbar-nav navbar-right">
               <a href="../index.php">Logout</a>
             </li>
