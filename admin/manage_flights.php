@@ -11,29 +11,17 @@
       $db = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to DB");
       $error_msg = "";
   
-      if(!isset($_POST["origin_input"]) || $_POST["origin_input"]==""){
-        $error_msg="Enter Origin Please!";
-      }
-      else if(!isset($_POST["destination_input"]) || $_POST["destination_input"]==""){
-        $error_msg="Enter Destination Please!";
-      }
-      else if(!isset($_POST["departure"]) || $_POST["departure"]==""){
-        $error_msg="Enter Departure Date Please!";
-      }
-      else if(!isset($_POST["return"]) || $_POST["return"]==""){
-        $error_msg="Enter Return Date Please!";
-      }
-      else{
+      
 
       $origin     =  strip_tags($_POST["origin_input"]);
       $destination   =  strip_tags($_POST["destination_input"]);
       $departure     =  strip_tags($_POST["departure"]);
       $return    =  strip_tags($_POST["return"]);
       
-      $sql1 = "SELECT * from flights f where f.origin = '{$origin}' and '{$departure}' IN ( select date(dept_time) from flights g WHERE g.flight_no = f.flight_no and g.origin = f.origin)";
+      $sql = "SELECT * from book_flight ORDER BY dept_time ASC";
 
-      $result1 = $db->query($sql1);
-      }
+      $result = $db->query($sql);
+      
 
       $db->close();
   
@@ -47,8 +35,6 @@
 <!-- <script type= "text/javascript" src = "../js/countries2.js"></script> -->
 <link rel="stylesheet" type="text/css" href="../main.css">
 <link rel="shortcut icon" type="image/x-icon" href="../images/icon.ico">
-<script type= "text/javascript" src = "../js/countries2.js"></script>
-<script type= "text/javascript" src = "../js/countries1.js"></script>
 </head>
 
 <body>
@@ -108,34 +94,29 @@
 
 <div id = 'results'>
 <?php  
-  global $result1;
+  global $result;
   $index = 1;
   echo "<table>";
   echo "<tr>";
 
-  if ($result1->num_rows > 0){
+  if ($result->num_rows > 0){
         // echo "something selected";        
-        // echo "<td>Index&nbsp; &nbsp;&nbsp; &nbsp;</td>";
-        // echo "<td>employeeID&nbsp; &nbsp;&nbsp; &nbsp;</td>";
-        // echo "<td>firstName&nbsp; &nbsp;&nbsp; &nbsp; </td>";
-        // echo "<td>lastName&nbsp; &nbsp;&nbsp; &nbsp;  </td>";
-        // echo "<td>position&nbsp; &nbsp;&nbsp; &nbsp;  </td>";
-        // echo "<td>email&nbsp; &nbsp;&nbsp; &nbsp;  </td>";
-        // echo "<td>contactNo&nbsp; &nbsp;&nbsp; &nbsp;  </td>";
-        // echo "</tr>";   
-  while( ($row =$result1->fetch_assoc()))
+        echo "<td>Index&nbsp; &nbsp;&nbsp; &nbsp;</td>";
+        echo "<td>Employee ID&nbsp; &nbsp;&nbsp; &nbsp;</td>";
+        echo "<td>Passport No. &nbsp; &nbsp;&nbsp; &nbsp; </td>";
+        echo "<td>Flight No.&nbsp; &nbsp;&nbsp; &nbsp;  </td>";
+        echo "<td>Departure Time&nbsp; &nbsp;&nbsp; &nbsp;  </td>";
+        echo "</tr>";   
+  while( ($row =$result->fetch_assoc()))
     {   
-        echo "</tr>";
+        echo "<tr>";
         echo "<td>$index</td>";
         $index = $index + 1;
+        echo "<td>".$row['id']."</td>";
+        echo "<td>".$row['passportNo']."</td>";
         echo "<td>".$row['flight_no']."</td>";
-        echo "<td>".$row['origin']."</td>";
-        echo "<td>".$row['destination']."</td>";
         echo "<td>".$row['dept_time']."</td>";
-        echo "<td>".$row['arri_time']."</td>";
-        echo "<td>".$row['capacity']."</td>";
-        // echo "<td><input type="submit" value = "update" name="update"></td>";
-        // echo "<td><input type="submit" value = "delete" name="delete"></td>";
+
     }
 
     }

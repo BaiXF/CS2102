@@ -107,7 +107,7 @@ else{
 							<a href="manage_users.php" class="dropdown-toggle" data-toggle="dropdown">Manage Airlines <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="./new_flight.php">New flight</a></li>
-								<li><a href="./manage_flights.php">Search flight</a></li>
+								<li><a href="./manage_flights.php">Manage Bookings</a></li>
 							</ul>
 						</li>
 						<li class="nav navbar-nav navbar-right">

@@ -270,10 +270,11 @@
         echo $sql31;
         $result31 = $db->query($sql31);
         
-        $sql32 = "SELECT passportNo FROM profile WHERE employeeID = '{$usname}'";
+        $sql32 = "SELECT passportNo, employeeID FROM profile WHERE employeeID = '{$usname}'";
         $result32 = $db->query($sql32);
         $row =$result32->fetch_assoc();
         $passport = $row['passportNo'];
+        $eid = $row['employeeID'];
         echo $passport;
         
         $sql33 = "SELECT dept_time FROM flights WHERE flight_no = '{$flight_d}' AND '{$d}' = date(dept_time)";
@@ -282,7 +283,7 @@
         $dept_time = $row['dept_time'];
         echo $dept_time;
 
-        $sql34 = "INSERT INTO book_flight (passportNo, flight_no, dept_time) VALUES ('{$passport}', '{$flight_d}', '{$dept_time}')";
+        $sql34 = "INSERT INTO book_flight (passportNo, id, flight_no, dept_time) VALUES ('{$passport}', '{$eid}' '{$flight_d}', '{$dept_time}')";
         $result34 = $db->query($sql34);
 
         $sql41 = "UPDATE flights SET occupied = occupied+1 WHERE flight_no = '{$flight_r}' AND '{$r}' = date(dept_time)";
@@ -295,7 +296,7 @@
         $arri_time = $row['dept_time'];
         echo $arri_time;
 
-        $sql44 = "INSERT INTO book_flight (passportNo, flight_no, dept_time) VALUES ('{$passport}', '{$flight_r}', '{$arri_time}')";
+        $sql44 = "INSERT INTO book_flight (passportNo, id, flight_no, dept_time) VALUES ('{$passport}', '{$eid}', '{$flight_r}', '{$arri_time}')";
         $result44 = $db->query($sql44);
     }
     
