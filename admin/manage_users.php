@@ -108,14 +108,10 @@ else{
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="./new_flight.php">New flight</a></li>
 								<li><a href="./manage_flights.php">Search flight</a></li>
-								<li class="divider"></li>
-								<li class="dropdown-header">Nav header</li>
-								<li><a href="http://getbootstrap.com/examples/carousel/#">Separated link</a></li>
-								<li><a href="http://getbootstrap.com/examples/carousel/#">One more separated link</a></li>
 							</ul>
 						</li>
 						<li class="nav navbar-nav navbar-right">
-							<a href="../logout.php">Logout</a>
+							<a href="../index.php">Logout</a>
 						</li>
 					</ul>
 
@@ -126,6 +122,7 @@ else{
 
 	</div>
 </div>
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 	<!-- Indicators -->
 	<ol class="carousel-indicators">

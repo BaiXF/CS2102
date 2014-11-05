@@ -73,7 +73,7 @@ else{
             <li><a href="./search_flights.php">Search for Flight</a></li>
 
             <li class="nav navbar-nav navbar-right">
-              <a href="../logout.php">Logout</a>
+              <a href="../index.php">Logout</a>
             </li>
           </ul>
         </div>
