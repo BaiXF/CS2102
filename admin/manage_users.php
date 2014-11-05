@@ -76,7 +76,7 @@ else{
 
 
                 <li class="dropdown">
-                  <a href="http://getbootstrap.com/examples/carousel/#" class="dropdown-toggle" data-toggle="dropdown">Manage Users <span class="caret"></span></a>
+                  <a href="manage_users.php" class="dropdown-toggle" data-toggle="dropdown">Manage Users <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="new_user.php">New user</a></li>
                     <li><a href="search_user.php">Search user</a></li>
@@ -86,7 +86,7 @@ else{
                 </li>
 
                 <li class="dropdown">
-                  <a href="http://getbootstrap.com/examples/carousel/#" class="dropdown-toggle" data-toggle="dropdown">Manage Airlines <span class="caret"></span></a>
+                  <a href="manage_users.php" class="dropdown-toggle" data-toggle="dropdown">Manage Airlines <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="http://getbootstrap.com/examples/carousel/#">Action</a></li>
                     <li><a href="http://getbootstrap.com/examples/carousel/#">Another action</a></li>
