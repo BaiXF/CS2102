@@ -140,7 +140,7 @@ else{
 			</div>
 		</div>
 		<div class="item">
-			<img src="../pic/businesstrip.jpg" alt="Third slide">
+			<img src="../pic/biztrip.jpg" alt="Third slide">
 			<div class="container">
 				<div class="carousel-caption">
 					<h1>Give your employees the superior business trip experience</h1>
