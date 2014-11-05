@@ -52,7 +52,7 @@ if (isset($_POST['username'])){
 <body>
 	<script src="js/bootstrap.min.js"></script>
 	<div id = "header">
-		<img src = "../images/logo.jpg" height = 100> &nbsp; &nbsp;
+		&nbsp; &nbsp;
 		<font size="25" color="white"><b>BIZ-Tripper Online Booking System</b></font> 
 	<br>
 </div>
