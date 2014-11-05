@@ -1,25 +1,36 @@
 <?php
-  // session_start();
-    
+  session_start();
+      $error_msg = "";
+
+     if(!isset($_SESSION['username'])){
+        header('Location: ../logout.php');
+     }
+  
+  if(isset($_SESSION['username'])){    
       $user = 'root';
       $pass = '';
       $db = 'biz_tripper';
 
       $db = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to DB");
-      $error_msg = "";
 
-      if(!isset($_POST["position"]))
+      if(!isset($_POST["position"]) || $_POST["position"]==""){
         $error_msg="Enter Position Please!";
-      else if(!isset($_POST["employeeID"]))
+      }
+      else if(!isset($_POST["employeeID"]) || $_POST["employeeID"]==""){
         $error_msg="Enter EmployeeID Please!";
-      else if(!isset($_POST["password"]))
+      }
+      else if(!isset($_POST["password"]) || $_POST["password"]==""){
         $error_msg="Enter Password Please!";
-      else if(!isset($_POST["firstname"]))
+      }
+      else if(!isset($_POST["firstname"]) || $_POST["firstname"]==""){
         $error_msg="Enter First Name Please!";
-      else if(!isset($_POST["lastname"]))
+      }
+      else if(!isset($_POST["lastname"]) || $_POST["lastname"]==""){
         $error_msg="Enter Last Name Please!";
-      else if(!isset($_POST["passportNo"]))
+      }
+      else if(!isset($_POST["passportNo"]) || $_POST["passportNo"]==""){
         $error_msg="Enter Passport Number Please!";
+      }
       else{
 
       $position     =  strip_tags($_POST["position"]);
@@ -44,11 +55,13 @@
       $result1 = $db->query($sql1);
       // if ($result1==false){  die("No record inserted!"); }
       $result2 = $db->query($sql2);
-      // if ($result1==true && $result2==false){  
-      //     $result3 = $db->query("DELETE FROM employeeID WHERE employeeID = '{$employeeID}' ");
-      // }
+      if ($result1==true && $result2==true){  
+          $error_msg = "One Row Inserted!";
+      }
+
       $db->close();
   }
+}
 ?>
 
 <!doctype html>
@@ -66,12 +79,15 @@
   <img src = "../images/logo.jpg" height = 100> &nbsp; &nbsp;
   <font size="25" color="black"><b>BIZ-Tripper Online Booking System</b></font> 
   <input type="submit" align = "right" onClick="document.location.href = ('../logout.php');" value="logout" name="logout" id="logout" >
+   <input type="submit" align = "right" onClick="document.location.href = ('superuser.php');" value="back" name="back" id="logout" >
   <br>
 </div>
 
 <div id="wrapper">
 <div class="error"><?php 
-    echo $error_msg; ?></div>
+    echo $error_msg; 
+    // $_POST = array();
+    ?></div>
 
 <form action="" method="post">
 <table cellpadding="10" cellspacing="10" width="50%">

@@ -1,7 +1,7 @@
 <?php
-// session_start();
+session_start();
 
-	// if(isset($_SESSION['username'])){
+	if(isset($_SESSION['username'])){
       
 	    if (isset($_POST['query'])){
 
@@ -21,7 +21,7 @@
   		else{
     		$errorMsg = "You are not logged in yet.";
   		}
-	// }
+	}
 ?>
 
 <!doctype html>
@@ -38,6 +38,7 @@
   <img src = "../images/logo.jpg" height = 100> &nbsp; &nbsp;
   <font size="25" color="black"><b>BIZ-Tripper Online Booking System</b></font> 
   <input type="submit" align = "right" onClick="document.location.href = ('../logout.php');" value="logout" name="logout" id="logout" >
+   <input type="submit" align = "right" onClick="document.location.href = ('superuser.php');" value="back" name="back" id="logout" >
   <br>
 </div>
 <br><br>
@@ -45,8 +46,8 @@
 	<tr>	
 		<th> <input type="submit" onClick="document.location.href = ('new_user.php');" value="New User" name="newU" id="userButton"> </th>
 		<th> <input type="submit" onClick="document.location.href = ('search_user.php');" value="Search User" name="searchU" id="userButton" ></th>
-		<th> <input type="submit" onClick="document.location.href = ('update_user.php');" value="Update User" name="updateU" id="userButton" ></th>
-		<th> <input type="submit" onClick="document.location.href = ('delete_user.php');" value="Delete User" name="deleteU" id="userButton" ></th>
+		<!-- <th> <input type="submit" onClick="document.location.href = ('update_user.php');" value="Update User" name="updateU" id="userButton" ></th>
+		<th> <input type="submit" onClick="document.location.href = ('delete_user.php');" value="Delete User" name="deleteU" id="userButton" ></th> -->
 	</tr>
 </table>
 

@@ -10,6 +10,8 @@
   } 
   else{
     $result = "You are not logged in yet.";
+    echo $result;
+    header('Location: ../logout.php');
   }
 
 ?>

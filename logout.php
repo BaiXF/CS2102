@@ -6,7 +6,7 @@ if(isset($_SESSION['username'])){
 	$msg = "<h32><center>You are now logged out</center></h2>";
 }
 else{
-	$msg = "<h2><center>Could not log out. Please try again.</center></h2>";
+	$msg = "<h2><center>Please Login Again!</center></h2>";
 }
 ?>
 <html>

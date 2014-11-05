@@ -12,6 +12,7 @@ if (isset($_POST['username'])){
 
 	$usname = strip_tags($_POST["username"]);
 	$paswd = strip_tags($_POST["password"]);
+	$_SESSION['sess_user_id'] = $usname;
 	
 	$sql = "SELECT * FROM employee A WHERE '{$usname}' = A.employeeID and '{$paswd}' = A.pwd";	
 	$result = $db->query($sql);
