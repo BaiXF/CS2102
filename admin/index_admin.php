@@ -1,11 +1,10 @@
 <?php
-<<<<<<< HEAD
+
 session_start();
 
-=======
-// session_start();
+
 $profpic = "../images/index_wp.jpg";
->>>>>>> origin/master
+
 if (isset($_POST['username'])){
 
 	$user = 'root';

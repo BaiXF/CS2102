@@ -20,10 +20,12 @@ if (isset($_POST['query'])){
 
 	$db->close();
 } 
+
+}
 else{
 	$errorMsg = "You are not logged in yet.";
 }
-	 }
+
 
 ?>
 
@@ -42,25 +44,7 @@ else{
 
 <body>
 
-<div id = "header">
-  <img src = "../images/logo.jpg" height = 100> &nbsp; &nbsp;
-  <font size="25" color="black"><b>BIZ-Tripper Online Booking System</b></font> 
-  <input type="submit" align = "right" onClick="document.location.href = ('../logout.php');" value="logout" name="logout" id="logout" >
-   <input type="submit" align = "right" onClick="document.location.href = ('superuser.php');" value="back" name="back" id="logout" >
-  <br>
-</div>
-<br><br>
-<table align="center" id = "panel" width="80%">
-	<tr>	
-		<th> <input type="submit" onClick="document.location.href = ('new_user.php');" value="New User" name="newU" id="userButton"> </th>
-		<th> <input type="submit" onClick="document.location.href = ('search_user.php');" value="Search User" name="searchU" id="userButton" ></th>
-		<!-- <th> <input type="submit" onClick="document.location.href = ('update_user.php');" value="Update User" name="updateU" id="userButton" ></th>
-		<th> <input type="submit" onClick="document.location.href = ('delete_user.php');" value="Delete User" name="deleteU" id="userButton" ></th> -->
-	</tr>
-</table>
-
-<br /><br /><br />
-<div id = "sqlquery">
+<!-- <div id = "sqlquery">
 <form action="" method="post">
 <table align = "center">
 <tr>	
@@ -70,21 +54,7 @@ else{
 	<th><input style="height:30px;width: 900px;font-size:14pt;" id = "box" name="query" type="text"></th>
 </tr>
 <tr>
-	<th><br/><br/><?php
-		global $errorMsg, $result;
-		if ($errorMsg !=""){
-			echo $errorMsg;
-		}
-		else{
-			if ($result==""){
-				echo "0 result";
-			}
-			else{
-				if ($result->num_rows > 0) {
-   			
-  	  				while($row = $result->fetch_assoc()) {
-  	  					print_r($row);
-  	  					echo "<br>";
+	<th><br/><br/> -->
 
 	<!--<div id = "header">
 		<img src = "../images/logo.jpg" height = 100> &nbsp; &nbsp;
@@ -253,6 +223,7 @@ else{
 				<th>
 					<br/>
 					<br/>
+
 					<?php
 					global $errorMsg, $result;
 					if ($errorMsg !=""){
@@ -276,7 +247,8 @@ else{
 							}
 						}
 					}
-					?></th>
+					?>
+					</th>
 				</tr>
 
 			</table> 
