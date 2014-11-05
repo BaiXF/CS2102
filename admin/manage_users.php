@@ -96,19 +96,18 @@ else{
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Users <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="/new_user">New user</a></li>
-								<li><a href="/search_user">Search user</a></li>
-								<li><a href="/update_user">Update user</a></li>
-								<li><a href="/delete_user">Delete user</a></li>
+								<li><a href="./new_user.php">New user</a></li>
+								<li><a href="./search_user.php">Search user</a></li>
+								<!-- <li><a href="/update_user">Update user</a></li>
+								<li><a href="/delete_user">Delete user</a></li> -->
 							</ul>
 						</li>
 
 						<li class="dropdown">
 							<a href="manage_users.php" class="dropdown-toggle" data-toggle="dropdown">Manage Airlines <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="http://getbootstrap.com/examples/carousel/#">Action</a></li>
-								<li><a href="http://getbootstrap.com/examples/carousel/#">Another action</a></li>
-								<li><a href="http://getbootstrap.com/examples/carousel/#">Something else here</a></li>
+								<li><a href="./new_flight.php">New flight</a></li>
+								<li><a href="./manage_flights.php">Search flight</a></li>
 								<li class="divider"></li>
 								<li class="dropdown-header">Nav header</li>
 								<li><a href="http://getbootstrap.com/examples/carousel/#">Separated link</a></li>
@@ -116,7 +115,7 @@ else{
 							</ul>
 						</li>
 						<li class="nav navbar-nav navbar-right">
-							<a href="http://getbootstrap.com/examples/carousel/#">Logout</a>
+							<a href="../logout.php">Logout</a>
 						</li>
 					</ul>
 
