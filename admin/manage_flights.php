@@ -26,7 +26,6 @@
 <head>
 <meta charset="utf-8">
 <title>BIZ-Tripper </title>
-<!-- <script type= "text/javascript" src = "../js/countries2.js"></script> -->
 <link rel="stylesheet" type="text/css" href="../main.css">
 <link rel="shortcut icon" type="image/x-icon" href="../images/icon.ico">
 </head>
