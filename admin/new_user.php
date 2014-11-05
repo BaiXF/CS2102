@@ -9,6 +9,7 @@ $db = 'biz_tripper';
 $db = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to DB");
 $error_msg = "";
 
+if (isset($_POST)){
 if(!isset($_POST["position"]))
   $error_msg="Enter Position Please!";
 else if(!isset($_POST["employeeID"]))
@@ -53,9 +54,10 @@ else{
       if ($result1==true && $result2==true){  
           $error_msg = "One Row Inserted!";
       }
-
-      $db->close();
   }
+}
+ $db->close();
+
 
 ?>
 
@@ -151,11 +153,6 @@ else{
   </div>
 </div>
 <br><br><br><br>
-<div class="container">
-  <div class="error">
-    <?php 
-    echo $error_msg; ?>
-  </div>
 
   <div align = "center">
     <form role="form" action="" method="post">
