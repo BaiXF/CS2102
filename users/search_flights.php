@@ -1,10 +1,8 @@
 <?php
   session_start();
  
-    $usname = null;
-    $d = '';
     $error_msg = "";
-    // $d = "";
+ 
      if(!isset($_SESSION['username'])){
         header('Location: ../logout.php');
      }
@@ -13,14 +11,11 @@
       $db = 'biz_tripper';
       $result = '';
 
-      if (isset($_SESSION['sess_user_id'])){
-          $usname = $_SESSION['sess_user_id'];
+      if (isset($_SESSION['username'])){
+          $usname = $_SESSION['username'];
       }
 
       if(isset($_POST['submit'])){
-
-      // $_SESSION['dept'] = $_POST['departure'];
-      // $_SESSION['rtrn'] = $_POST['return'];
 
       $db = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to DB");
       $error_msg = "";
@@ -89,7 +84,7 @@
 
   <tr>
     <th scope="row">Origin: </th>
-    <td><input name="origin_input" type="text"></td>
+    <td><input name="origin_input"  type="text"></td>
     <!-- <th scope="row">Country: </th>
     <td><select onchange="print_state('state',this.value);" id="country" name = "ori_country"></select></td>
     <th scope="row">City: </th>
@@ -109,12 +104,12 @@
 
   <tr>
     <th scope="row">Departure Date: </th>
-    <td><input name="departure" type="date"></td>
+    <td><input name="departure" value="<?php echo $departure;?>" type="date"></td>
   </tr>
 
   <tr>
     <th scope="row">Return Date: </th>
-    <td><input name="return" type="date"></td>
+    <td><input name="return" value="<?php echo $return;?>" type="date"></td>
   </tr>
 
   <tr>
@@ -164,7 +159,7 @@
 <h2>Return: </h2>
 
 <?php  
-  global $d, $result2;
+  global $result2;
   $index = 1;
   echo "<table>";
   echo "<tr>";
@@ -190,8 +185,6 @@
         echo "<td>".$row['dept_time']."</td>";
         echo "<td>".$row['arri_time']."</td>";
     }
-    if ($d=='')
-    $d = $row['dept_time'];
     }
     else{
         $error_msg = "<td>Nothing Selected!</td>";
@@ -223,11 +216,25 @@
 
 </div>
 <?php 
+  
+  global $usname;
   $user = 'root';
   $pass = '';
   $db = 'biz_tripper';
   $result = '';
-  global $d, $usname;
+  $departure_copy = '';
+  $return_copy = '';
+  
+  
+  if(isset($_POST["departure"]))
+    $departure_copy = strip_tags($_POST["departure"]);
+  if(isset($_POST["return"])) 
+    $return_copy = strip_tags($_POST["return"]);
+
+  echo $usname;
+  echo $departure_copy;
+  echo $return_copy;
+
   $db = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to DB");
   if(isset($_POST["book"])){
 
@@ -240,9 +247,8 @@
 
       echo $flight_d;
       echo $flight_r;
-      echo $usname;
       
-      echo $d;
+
       // echo strip_tags($_SESSION(['rtrn']));
       
         // $sql31 = "UPDATE flights SET occupied = occupied+1  WHERE flight_no = '{$flight_d}' AND dept_time = '{$departure_copy}'";
