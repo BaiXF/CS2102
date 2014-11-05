@@ -89,34 +89,39 @@
 
   $db = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to DB");
   $sql1 = "DELETE FROM book_flight WHERE 1 ";
+  $sql2 = "UPDATE flights SET occupied = occupied-1 WHERE 1 ";
   $empty_flag = 1;
 
   if(isset($_POST["delete_button"])){
+    
+
     if (isset($_POST["employeeID"]) && $_POST["employeeID"]!=''){
       $id = strip_tags($_POST["employeeID"]);
       $sql1 =  $sql1."AND id = '{$id}' ";
-      $empty_flag = 0;
     }
 
     if (isset($_POST["flightNo"]) && $_POST["flightNo"]!=''){
       $fn = strip_tags($_POST["flightNo"]);
-      $sql1 =  $sql1."AND flight_no = '{$fn}' ";
+      $sql1 = $sql1."AND flight_no = '{$fn}' ";
+      $sql2 = $sql2."AND flight_no = '{$fn}' ";
       $empty_flag = 0;
     }
 
     if (isset($_POST["date"]) && $_POST["date"]!=''){
       $dt = strip_tags($_POST["date"]);
-      $sql1 =  $sql1."AND date(dept_time) = '{$dt}' ";
+      $sql1 = $sql1."AND date(dept_time) = '{$dt}' ";
+      $sql2 = $sql2."AND date(dept_time) = '{$dt}' ";
       $empty_flag = 0;
     }
-    echo $sql1;
     
+    echo $sql1;
+    echo $sql2;
     if($empty_flag){
-      echo "<br><h2>Please input at least one field.</h2>";
+      echo "<br><h2>Please input at least one field from flight number and date.</h2>";
     }
     else{
         $result1 = $db->query($sql1);
-        
+        $result2 = $db->query($sql2);
         if ($sql1){
           header("Refresh:0");
         }
