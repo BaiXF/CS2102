@@ -39,6 +39,14 @@
       $departure     =  strip_tags($_POST["departure"]);
       $return    =  strip_tags($_POST["return"]);
       
+      if (!isset($_SESSION['dept'])){
+        $_SESSION['dept'] = $departure;
+      }
+
+      if (!isset($_SESSION['rtrn'])){
+        $_SESSION['rtrn'] = $return;
+      }
+
       $sql1 = "SELECT * from flights f where f.origin like '%$origin%' and f.destination like '%$destination%' and f.capacity > f.occupied and '{$departure}' IN ( select date(dept_time) from flights g WHERE g.flight_no = f.flight_no and g.origin = f.origin)";
 
 
@@ -104,12 +112,12 @@
 
   <tr>
     <th scope="row">Departure Date: </th>
-    <td><input name="departure" value="<?php echo $departure;?>" type="date"></td>
+    <td><input name="departure" value="<?php echo $_SESSION['dept'];?>" type="date"></td>
   </tr>
 
   <tr>
     <th scope="row">Return Date: </th>
-    <td><input name="return" value="<?php echo $return;?>" type="date"></td>
+    <td><input name="return" value="<?php echo $_SESSION['rtrn'];?>" type="date"></td>
   </tr>
 
   <tr>
@@ -218,25 +226,33 @@
 <?php 
   
   global $usname;
-  $user = 'root';
-  $pass = '';
-  $db = 'biz_tripper';
+ 
   $result = '';
-  $departure_copy = '';
-  $return_copy = '';
+  $departure = '';
+  $return = '';
   
   
   if(isset($_POST["departure"]))
-    $departure_copy = strip_tags($_POST["departure"]);
+    $departure = strip_tags($_POST["departure"]);
   if(isset($_POST["return"])) 
-    $return_copy = strip_tags($_POST["return"]);
+    $return = strip_tags($_POST["return"]);
 
   echo $usname;
-  echo $departure_copy;
-  echo $return_copy;
+  if (isset($_SESSION['dept']) && isset($_SESSION['rtrn'])){
+    echo $_SESSION['dept'];
+    echo $_SESSION['rtrn'];
+  }
+  else{
+    echo "ERROR";
+  }
 
-  $db = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to DB");
+  
   if(isset($_POST["book"])){
+
+  $user = 'root';
+  $pass = '';
+  $db = 'biz_tripper';
+  $db = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to DB");
 
     if (!isset($_POST["flight_dept"]) || !isset($_POST["flight_rtrn"]) || $_POST["flight_dept"]=='' || $_POST["flight_rtrn"]==''){
       echo "Please Input The Flight No.";
@@ -247,12 +263,10 @@
 
       echo $flight_d;
       echo $flight_r;
-      
+      echo $_SESSION['dept'];
 
-      // echo strip_tags($_SESSION(['rtrn']));
-      
-        // $sql31 = "UPDATE flights SET occupied = occupied+1  WHERE flight_no = '{$flight_d}' AND dept_time = '{$departure_copy}'";
-        // $result31 = $db->query($sql31);
+        $sql31 = "UPDATE flights SET occupied = '1'  WHERE flight_no = '{$flight_d}' AND dept_time = '{$_SESSION['dept']}'";
+        $result31 = $db->query($sql31);
         
         // $sql32 = "SELECT passportNo FROM profile WHERE employeeID = '{$usname}'";
         // $result32 = $db->query($sql32);
