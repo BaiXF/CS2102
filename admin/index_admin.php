@@ -2,9 +2,6 @@
 
 session_start();
 
-
-$profpic = "../images/index_wp.jpg";
-
 if (isset($_POST['username'])){
 
 	$user = 'root';
@@ -42,9 +39,9 @@ if (isset($_POST['username'])){
 	<link rel = "stylesheet" type = "text/css" href=" ../main.css">
 	<style type="text/css">
 		body {
-			background-image:url('<?php echo $profpic;?>');
+			background-image:url(../images/index_wp.jpg);
 			background-repeat:no-repeat;
-    		background-position:50% 20%;
+    		background-position:50% 0%;
 		}
 	</style>
 	<!-- Bootstrap core CSS -->

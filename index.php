@@ -44,7 +44,7 @@ if (isset($_POST['username'])){
 		body {
 			background-image:url('<?php echo $profpic;?>');
 			background-repeat:no-repeat;
-    		background-position:50% 20%;
+    		background-position:50% 0%;
 		}
 	</style>
 	<!-- Bootstrap core CSS -->
