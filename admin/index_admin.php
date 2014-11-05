@@ -53,7 +53,7 @@ if (isset($_POST['username'])){
 	<script src="js/bootstrap.min.js"></script>
 	<div id = "header">
 		<img src = "../images/logo.jpg" height = 100> &nbsp; &nbsp;
-		<font size="25" color="black"><b>BIZ-Tripper Online Booking System</b></font> 
+		<font size="25" color="white"><b>BIZ-Tripper Online Booking System</b></font> 
 	<br>
 </div>
 <div id="menu">
@@ -77,6 +77,9 @@ if (isset($_POST['username'])){
   </tr>
   <tr>
     <td><input name="password" type="password" class="form-control" placeholder="Password" required/></td>
+  </tr>
+    <tr>
+    <td><br></td>
   </tr>
   <tr>
     <td>
