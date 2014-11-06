@@ -41,7 +41,7 @@ if (isset($_POST['username'])){
 		body {
 			background-image:url(../images/index_wp.jpg);
 			background-repeat:no-repeat;
-    		background-position:50% 0%;
+    		background-size:cover;
 		}
 	</style>
 	<!-- Bootstrap core CSS -->

@@ -13,8 +13,7 @@
   body {
     background-image:url(../images/plane.jpg);
     background-repeat:no-repeat;
-    background-position:50% 0%;
-    background-size:100% 150%;
+    background-size:cover;
   }
   </style>
 </head>

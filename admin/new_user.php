@@ -76,8 +76,7 @@ $db->close();
   body {
     background-image:url(../images/apple.jpg);
     background-repeat:no-repeat;
-    background-position:40% 0%;
-    background-size:121% 121%;
+    background-size:cover;
   }
   </style>
 </head>

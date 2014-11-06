@@ -15,12 +15,19 @@ else{
 	<title> BIZ-Tripper</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel = "stylesheet" type = "text/css" href=" main.css">
+	<style type="text/css">
+  body {
+    background-image:url(images/skyfly.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+  </style>
 </head>
 
 <body>
 	<div id = "header">
-		<img src = "images/logo.jpg" height = 100> &nbsp; &nbsp;
-		<font size="25" color="black"><b>BIZ-Tripper Online Booking System</b></font> 
+		&nbsp; &nbsp;
+		<font size="25" color="white"><b>BIZ-Tripper Online Booking System</b></font> 
 	<br>
 </div>
 <br><?php echo "$msg" ?><br><br>
