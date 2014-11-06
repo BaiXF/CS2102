@@ -112,7 +112,7 @@
       </tr>
       <tr>
         <th scope="row"><font color="white">Origin *: </font></th>
-        <td><input type="password" name="password" class="form-control" required="" autofocus/></td>
+        <td><input type="text" name="password" class="form-control" required="" autofocus/></td>
       </tr>
       <tr>
         <td><br></td>

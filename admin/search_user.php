@@ -71,6 +71,7 @@ $db->close();
 <!doctype html>
 <html>
 <head>
+<<<<<<< Updated upstream
   <meta charset="utf-8">
   <title>BIZ-Tripper </title>
   <link rel="stylesheet" type="text/css" href="../main.css">
@@ -86,6 +87,16 @@ $db->close();
     background-size:cover;
   }
   </style>
+=======
+<meta charset="utf-8">
+<title>BIZ-Tripper </title>
+<!-- <script type= "text/javascript" src = "../js/countries2.js"></script> -->
+<link rel="stylesheet" type="text/css" href="../main.css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/icon.ico">
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="./Carousel Template for Bootstrap_files/ie-emulation-modes-warning.js"></script>
+<link href="http://getbootstrap.com/examples/carousel/carousel.css" rel="stylesheet">
+>>>>>>> Stashed changes
 </head>
 
 <body>
