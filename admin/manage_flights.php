@@ -29,13 +29,12 @@ $db->close();
   <link rel="stylesheet" type="text/css" href="../main.css">
   <link rel="shortcut icon" type="image/x-icon" href="../images/icon.ico">
   <script type= "text/javascript" src = "../js/countries2.js"></script>
-  <link rel="shortcut icon" type="image/x-icon" href="../images/icon.ico">
   <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="http://getbootstrap.com/examples/carousel/carousel.css" rel="stylesheet">
   <link href="signin.css" rel="stylesheet">
   <style type="text/css">
   body {
-    background-image:url(../images/plane.jpg);
+    background-image:url(../images/above_clouds.jpg);
     background-repeat:no-repeat;
     background-size:cover;
   }
@@ -83,10 +82,6 @@ $db->close();
               <ul class="dropdown-menu" role="menu">
                 <li><a href="./new_flight.php">New flight</a></li>
                 <li><a href="./manage_flights.php">Manage Bookings</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="http://getbootstrap.com/examples/carousel/#">Separated link</a></li>
-                <li><a href="http://getbootstrap.com/examples/carousel/#">One more separated link</a></li>
               </ul>
             </li>
             <li class="nav navbar-nav navbar-right">
@@ -195,7 +190,7 @@ if(isset($_POST["delete_button"])){
 
 ?>
 <div>
-  <br><br><br><br><br><br>
+  <br><br><br><br>
 </div>
 <div align = "center">
   <form action="" method="post" role="form">
