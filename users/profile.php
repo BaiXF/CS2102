@@ -1,7 +1,7 @@
 <?php
 include "../include/common.inc.php";
 session_start();
-
+ob_start();
 $user = 'root';
 $pass = '';
 $db = 'biz_tripper';
@@ -242,8 +242,9 @@ else{
      $result4 = $db->query($sql4);
    }
    if (isset($_POST['birthday']) || isset($_POST['email']) || isset($_POST['contactNo']) || isset($_POST['address'])){
-     // sleep(2);
-     // header("Refresh:0");	
+     sleep(1);
+     // header("Refresh:0");
+     header("Location:profile.php");	
    }
  }
  ?>
