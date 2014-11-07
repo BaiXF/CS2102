@@ -101,27 +101,29 @@ $db->close();
   <?php  
   global $result;
   $index = 1;
+  echo "<br><br><br><br>";
+  echo "<form>";
   echo "<table>";
   echo "<tr>";
 
   if ($result->num_rows > 0){
         // echo "something selected";        
-    echo "<td>Index&nbsp; &nbsp;&nbsp; &nbsp;</td>";
-    echo "<td>Employee ID&nbsp; &nbsp;&nbsp; &nbsp;</td>";
-    echo "<td>Passport No. &nbsp; &nbsp;&nbsp; &nbsp; </td>";
-    echo "<td>Flight No.&nbsp; &nbsp;&nbsp; &nbsp;  </td>";
-    echo "<td>Departure Time&nbsp; &nbsp;&nbsp; &nbsp;  </td>";
+    echo "<td><b><font color='white'>Index&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</b></td>";
+    echo "<td><b><font color='white'>Employee ID&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</b></td>";
+    echo "<td><b><font color='white'>Passport No. &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;</b></td>";
+    echo "<td><b><font color='white'>Flight No.&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;&nbsp; &nbsp;</b></td>";
+    echo "<td><b><font color='white'>Departure Time&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; </b></td>";
     echo "</tr>";   
     while( ($row =$result->fetch_assoc()))
     {   
       $row['index'] = $index;
       echo "<tr>";
-      echo "<td>".$row['index']."</td>";
+      echo "<td><b><font color='white'>".$row['index']."</b></td>";
       $index = $index + 1;
-      echo "<td>".$row['id']."</td>";
-      echo "<td>".$row['passportNo']."</td>";
-      echo "<td>".$row['flight_no']."</td>";
-      echo "<td>".$row['dept_time']."</td>";
+      echo "<td><b><font color='white'>".$row['id']."</b></td>";
+      echo "<td><b><font color='white'>".$row['passportNo']."</b></td>";
+      echo "<td><b><font color='white'>".$row['flight_no']."</b></td>";
+      echo "<td><b><font color='white'>".$row['dept_time']."</b></td>";
 
     }
 
@@ -132,6 +134,7 @@ $db->close();
   }
   echo "</tr>";
   echo "</table>";
+  echo "</form>"
   ?>
 
 </div>
@@ -218,7 +221,7 @@ if(isset($_POST["delete_button"])){
       </tr>
       <tr>
         <td>
-          <button class="btn btn-lg btn-primary btn-block" type="submit" name="delete_button" value="Delete">Submit</button>
+          <button class="btn btn-lg btn-primary btn-block" type="submit" name="delete_button" value="Delete">DELETE</button>
         </td>
       </tr>
 
