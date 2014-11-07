@@ -190,7 +190,6 @@
     </form>
     </div>
 
-
     <div id = 'results_dept' align="center" style="color:white">
       <h2> Depart: </h2>
       <?php  
@@ -282,11 +281,18 @@
               <th scope="row">Return Flight No. Chosen:&nbsp; &nbsp;</th>
               <td><input name="flight_rtrn" type="text">&nbsp; &nbsp;&nbsp; &nbsp;</td>   
             </tr>
-            <tr>
+            <!--<tr>
               <th scope="row"></th><th scope="row"></th>
               <td><input type="submit" value = "BOOK" name="book"></td>   
+            </tr>-->
+                        <tr>
+              <td><br></td>
             </tr>
           </table>
+                <div class="container" align="center" width="300px">
+        <button class="btn btn-lg btn-default" type="submit" width="300px" align="center">Book</button>
+
+      </div>
         </form>
         <br>
 
@@ -372,5 +378,9 @@
         }
         
       }
-      
+    
       ?>
+</body>
+</html>
+
+
