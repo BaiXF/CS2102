@@ -48,7 +48,7 @@
         }
 
         $sql1 = "SELECT * from flights where origin like '%$origin%' and destination like '%$destination%' and capacity > occupied and '{$departure}' = date(dept_time)";
-
+        echo "<h3>sql:".$sql1."</h3>";
 
         $sql2 = "SELECT * from flights where origin like '%$destination%' and destination like '%$origin%' and capacity > occupied and '{$return}' = date(dept_time)";
 
@@ -83,7 +83,7 @@
       <script src="../bootstrap/js/*.js"></script>
         <style type="text/css">
       body {
-        background-image:url(../images/skyfly.jpg);
+        /*background-image:url(../images/skyfly.jpg);*/
         background-repeat:no-repeat;
         background-size:cover;
       }
@@ -183,7 +183,7 @@
         </tr>
       </table>
       <div class="container" align="center" width="300px">
-        <button class="btn btn-lg btn-default" type="submit" width="300px" align="center">Submit</button>
+        <button class="btn btn-lg btn-default" type="submit" width="300px" name= "submit" align="center">Submit</button>
 
       </div>
 
@@ -194,12 +194,14 @@
       <h2> Depart: </h2>
       <?php  
       global $result1;
+
+      echo "<h2> Waiting for result1</h2>";
       $index = 1;
       echo "<table>";
       echo "<tr>";
 
       if (is_object($result1) && $result1->num_rows > 0){
-            // echo "something selected";        
+        echo "<h3>something selected</h3>";        
         echo "<td>Index&nbsp; &nbsp;&nbsp; &nbsp;</td>";
         echo "<td>Flight No.&nbsp; &nbsp;&nbsp; &nbsp;</td>";
         echo "<td>Origin&nbsp; &nbsp;&nbsp; &nbsp; </td>";
@@ -271,7 +273,7 @@
           <table>
             <tr>
               <th scope="row">Depart Flight No. Chosen:&nbsp; &nbsp;</th>
-              <td><input name="flight_dept" type="text">&nbsp; &nbsp;&nbsp; &nbsp;</td>   
+              <td><font color='black'><input name="flight_dept"  type="text">&nbsp; &nbsp;&nbsp; &nbsp;</td>   
             </tr>
             <tr>
               <td><br></td>
@@ -279,7 +281,7 @@
 
             <tr>
               <th scope="row">Return Flight No. Chosen:&nbsp; &nbsp;</th>
-              <td><input name="flight_rtrn" type="text">&nbsp; &nbsp;&nbsp; &nbsp;</td>   
+              <td><font color='black'><input name="flight_rtrn" type="text">&nbsp; &nbsp;&nbsp; &nbsp;</td>   
             </tr>
             <!--<tr>
               <th scope="row"></th><th scope="row"></th>
@@ -290,7 +292,7 @@
             </tr>
           </table>
                 <div class="container" align="center" width="300px">
-        <button class="btn btn-lg btn-default" type="submit" width="300px" align="center">Book</button>
+        <button class="btn btn-lg btn-default" type="submit" name = "book" width="300px" align="center">Book</button>
 
       </div>
         </form>
@@ -314,11 +316,11 @@
 
       // echo $usname;
       if (isset($_SESSION['dept']) && isset($_SESSION['rtrn'])){
-        echo $_SESSION['dept'];
-        echo $_SESSION['rtrn'];
+        echo "<h3><font color='black'>".$_SESSION['dept']."</h3>";
+        echo "<h3><font color='black'>".$_SESSION['rtrn']."</h3>";
       }
       else{
-        // echo "ERROR";
+        echo "<font color='black'>ERROR";
       }
 
       
@@ -342,7 +344,7 @@
           $r = $_SESSION['rtrn'];
 
           $sql31 = "UPDATE flights SET occupied = occupied+1 WHERE flight_no = '{$flight_d}' AND '{$d}' = date(dept_time)";
-          echo $sql31;
+          echo "<br><font color='black'>".$sql31;
           $result31 = $db->query($sql31);
 
           $sql32 = "SELECT passportNo, employeeID FROM profile WHERE employeeID = '{$usname}'";
@@ -350,7 +352,7 @@
           $row =$result32->fetch_assoc();
           $passport = $row['passportNo'];
           $eid = $row['employeeID'];
-          echo $passport;
+          echo "<br>".$passport;
 
           $sql33 = "SELECT dept_time FROM flights WHERE flight_no = '{$flight_d}' AND '{$d}' = date(dept_time)";
           $result33 = $db->query($sql33);
@@ -359,11 +361,11 @@
           echo $dept_time;
 
           $sql34 = "INSERT INTO book_flight (passportNo, id, flight_no, dept_time) VALUES ('{$passport}', '{$eid}' '{$flight_d}', '{$dept_time}')";
-          echo "<br>".$sql34;
+          echo "<br><font color='black'>".$sql34;
           $result34 = $db->query($sql34);
 
           $sql41 = "UPDATE flights SET occupied = occupied+1 WHERE flight_no = '{$flight_r}' AND '{$r}' = date(dept_time)";
-          echo $sql41;
+          echo "<br><font color='black'>".$sql41;
           $result41 = $db->query($sql41);
 
           $sql43 = "SELECT dept_time FROM flights WHERE flight_no = '{$flight_r}' AND '{$r}' = date(dept_time)";
@@ -373,7 +375,7 @@
           echo $arri_time;
 
           $sql44 = "INSERT INTO book_flight (passportNo, id, flight_no, dept_time) VALUES ('{$passport}', '{$eid}', '{$flight_r}', '{$arri_time}')";
-          echo "<br>".$sql44;
+          echo "<br><font color='black'>".$sql44;
           $result44 = $db->query($sql44);
         }
         
