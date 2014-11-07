@@ -196,7 +196,7 @@ else{
     echo "</tr>";   
     
     echo "<tr>";
-    echo "<td></td><td></td><td height='80'><input type='submit' name='update_button' value='Update' /></td>";
+    echo "<td></td><td></td><td height='80'><font color='black'><input type='submit' name='update_button' value='Update' /></td>";
 
   }
   else{
