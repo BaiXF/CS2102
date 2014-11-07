@@ -96,6 +96,7 @@ else{
         // echo "something selected";        
   	$row =$result->fetch_assoc();
 
+    echo "<br><br><br><br><br><br>";
     echo "<td>Employee ID:&nbsp; &nbsp;&nbsp; &nbsp;</td>";
     echo "<td>".$row['employeeID']."&nbsp; &nbsp;&nbsp; &nbsp;</td>";
     echo "</tr>";
@@ -179,14 +180,13 @@ else{
 
     echo "<tr>";
     echo "<td>contactNo&nbsp; &nbsp;&nbsp; &nbsp;  </td>";
-    echo "<td>".$row['contactNo']."&nbsp; &nbsp;&nbsp; &nbsp; </td>";
-    echo"<tr>";
-    echo"<td><br></td>";
-    echo"</tr>";
-
+    echo "<td>".$row['contactNo']."&nbsp; &nbsp;&nbsp; &nbsp; </td>";   
     echo "<td>Update Contact: &nbsp; &nbsp;&nbsp; &nbsp;  </td>";
     echo "<td><input type='integer' name='contactNo'></td>";
     echo "</tr>";   
+    echo"<tr>";
+    echo"<td><br></td>";
+    echo"</tr>";
     
     echo "<tr>";
     echo "<td>address&nbsp; &nbsp;&nbsp; &nbsp;  </td>";
