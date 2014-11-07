@@ -134,9 +134,9 @@
       <br><br><br><br><br><br>
     </div>
     <div id="wrapper" class="container">
-      <div class="error"><?php
+      <!-- <div class="error"><?php
       echo $error_msg; 
-      ?></div>
+      ?></div> -->
 
       <form action="" method="post" align="center" style="color:white"> 
         <table align="center">
@@ -198,7 +198,7 @@
       echo "<table>";
       echo "<tr>";
 
-      if ($result1->num_rows > 0){
+      if (is_object($result1) && $result1->num_rows > 0){
             // echo "something selected";        
         echo "<td>Index&nbsp; &nbsp;&nbsp; &nbsp;</td>";
         echo "<td>Flight No.&nbsp; &nbsp;&nbsp; &nbsp;</td>";
@@ -236,7 +236,7 @@
       echo "<table>";
       echo "<tr>";
 
-      if ($result2->num_rows > 0){
+      if (is_object($result2) && $result2->num_rows > 0){
             // echo "something selected";        
         echo "<td>Index&nbsp; &nbsp;&nbsp; &nbsp;</td>";
         echo "<td>Flight No.&nbsp; &nbsp;&nbsp; &nbsp;</td>";
@@ -312,13 +312,13 @@
       if(isset($_POST["return"])) 
         $return = strip_tags($_POST["return"]);
 
-      echo $usname;
+      // echo $usname;
       if (isset($_SESSION['dept']) && isset($_SESSION['rtrn'])){
         echo $_SESSION['dept'];
         echo $_SESSION['rtrn'];
       }
       else{
-        echo "ERROR";
+        // echo "ERROR";
       }
 
       
