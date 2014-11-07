@@ -1,6 +1,6 @@
     <?php
     session_start();
-
+    ob_start();
     $error_msg = "";
 
     if(!isset($_SESSION['username'])){
@@ -48,7 +48,7 @@
         }
 
         $sql1 = "SELECT * from flights where origin like '%$origin%' and destination like '%$destination%' and capacity > occupied and '{$departure}' = date(dept_time)";
-        echo "<h3>sql:".$sql1."</h3>";
+        // echo "<h3>sql:".$sql1."</h3>";
 
         $sql2 = "SELECT * from flights where origin like '%$destination%' and destination like '%$origin%' and capacity > occupied and '{$return}' = date(dept_time)";
 
@@ -83,7 +83,7 @@
       <script src="../bootstrap/js/*.js"></script>
         <style type="text/css">
       body {
-        /*background-image:url(../images/skyfly.jpg);*/
+        background-image:url(../images/skyfly.jpg);
         background-repeat:no-repeat;
         background-size:cover;
       }
@@ -195,7 +195,7 @@
       <?php  
       global $result1;
 
-      echo "<h2> Waiting for result1</h2>";
+      // echo "<h2> Waiting for result1</h2>";
       $index = 1;
       echo "<table>";
       echo "<tr>";
@@ -315,13 +315,13 @@
         $return = strip_tags($_POST["return"]);
 
       // echo $usname;
-      if (isset($_SESSION['dept']) && isset($_SESSION['rtrn'])){
-        echo "<h3><font color='black'>".$_SESSION['dept']."</h3>";
-        echo "<h3><font color='black'>".$_SESSION['rtrn']."</h3>";
-      }
-      else{
-        echo "<font color='black'>ERROR";
-      }
+      // if (isset($_SESSION['dept']) && isset($_SESSION['rtrn'])){
+        // echo "<h3><font color='black'>".$_SESSION['dept']."</h3>";
+        // echo "<h3><font color='black'>".$_SESSION['rtrn']."</h3>";
+      // }
+      // else{
+        // echo "<font color='black'>ERROR";
+      // }
 
       
       if(isset($_POST["book"])){
@@ -338,13 +338,13 @@
           $flight_d = strip_tags($_POST["flight_dept"]);
           $flight_r = strip_tags($_POST["flight_rtrn"]);
 
-          echo $flight_d;
-          echo $flight_r;
+          // echo $flight_d;
+          // echo $flight_r;
           $d = $_SESSION['dept'];
           $r = $_SESSION['rtrn'];
 
           $sql31 = "UPDATE flights SET occupied = occupied+1 WHERE flight_no = '{$flight_d}' AND '{$d}' = date(dept_time)";
-          echo "<br><font color='black'>".$sql31;
+          // echo "<br><font color='black'>".$sql31;
           $result31 = $db->query($sql31);
 
           $sql32 = "SELECT passportNo, employeeID FROM profile WHERE employeeID = '{$usname}'";
@@ -352,31 +352,36 @@
           $row =$result32->fetch_assoc();
           $passport = $row['passportNo'];
           $eid = $row['employeeID'];
-          echo "<br>".$passport;
+          // echo "<br>".$passport;
 
           $sql33 = "SELECT dept_time FROM flights WHERE flight_no = '{$flight_d}' AND '{$d}' = date(dept_time)";
           $result33 = $db->query($sql33);
           $row =$result33->fetch_assoc();
           $dept_time = $row['dept_time'];
-          echo $dept_time;
+          // echo $dept_time;
 
-          $sql34 = "INSERT INTO book_flight (passportNo, id, flight_no, dept_time) VALUES ('{$passport}', '{$eid}' '{$flight_d}', '{$dept_time}')";
-          echo "<br><font color='black'>".$sql34;
-          $result34 = $db->query($sql34);
+         
 
           $sql41 = "UPDATE flights SET occupied = occupied+1 WHERE flight_no = '{$flight_r}' AND '{$r}' = date(dept_time)";
-          echo "<br><font color='black'>".$sql41;
+          // echo "<br><font color='black'>".$sql41;
           $result41 = $db->query($sql41);
 
           $sql43 = "SELECT dept_time FROM flights WHERE flight_no = '{$flight_r}' AND '{$r}' = date(dept_time)";
           $result43 = $db->query($sql43);
           $row =$result43->fetch_assoc();
           $arri_time = $row['dept_time'];
-          echo $arri_time;
+          // echo $arri_time;
 
           $sql44 = "INSERT INTO book_flight (passportNo, id, flight_no, dept_time) VALUES ('{$passport}', '{$eid}', '{$flight_r}', '{$arri_time}')";
-          echo "<br><font color='black'>".$sql44;
+          // echo "<br><font color='black'>".$sql44;
           $result44 = $db->query($sql44);
+
+           $sql34 = "INSERT INTO book_flight (passportNo, id, flight_no, dept_time) VALUES ('{$passport}', '{$eid}', '{$flight_d}', '{$dept_time}')";
+          // echo "<br><font color='black'>".$sql34;
+          $result34 = $db->query($sql34);
+
+          header("Location: my_bookings.php");
+         
         }
         
       }

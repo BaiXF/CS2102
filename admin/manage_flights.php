@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 if(!isset($_SESSION['username'])){
   header('Location: ../logout.php');
 }
@@ -174,8 +175,8 @@ if(isset($_POST["delete_button"])){
     $empty_flag = 0;
   }
   
-  echo $sql1;
-  echo $sql2;
+  // echo $sql1;
+  // echo $sql2;
   if($empty_flag){
     echo "<br><h2>Please input at least one field from flight number and date.</h2>";
   }
