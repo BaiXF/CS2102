@@ -316,7 +316,7 @@ if(isset($_POST["delete_button"])){
     $result = $db->query($sql1);
     if ($sql){
       echo "<h2>One row deleted.</h2>";
-      header("Refresh:0");
+      // header("Refresh:0");
     }
     else{
       echo "<h2>Cannot be deleted!</h2>";
@@ -328,9 +328,9 @@ if (isset($_POST["update_button"])){
     $id = strip_tags($_POST["update"]);
     $field = strip_tags($_POST["field"]);
     $value = strip_tags($_POST["value"]);
-    echo "<h3>".$id."</h3>";
-    echo "<h3>".$field."</h3>";
-    echo "<h3>".$value."</h3>";
+    // echo "<h3>".$id."</h3>";
+    // echo "<h3>".$field."</h3>";
+    // echo "<h3>".$value."</h3>";
     if ($field == 'password')
       $sql2 = "UPDATE employee SET pwd = '{$value}' WHERE employeeID = '{$id}' "; 
     else
@@ -339,7 +339,7 @@ if (isset($_POST["update_button"])){
     $result = $db->query($sql2);
     if ($sql2){
       echo "<h2>One row updated.</h2>";
-      header("Refresh:0");
+      // header("Refresh:0");
     }
     else{
       echo "<h2>Cannot be updated!</h2>";

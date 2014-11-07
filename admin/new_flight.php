@@ -1,3 +1,41 @@
+<?php
+
+session_start();
+
+$user = 'root';
+$pass = '';
+$db = 'biz_tripper';
+
+$db = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect to DB");
+$error_msg = "";
+
+if (isset($_POST)){
+  if(isset($_POST["flight_no"]) && isset($_POST["departure"]) && isset($_POST["arrival"]) && isset($_POST["origin"]) && 
+    isset($_POST["destination"]) && isset($_POST["capacity"])){
+
+    $flightNo     =  strip_tags($_POST["flight_no"]);
+    $departure   =  strip_tags($_POST["departure"]);
+    $arrival     =  strip_tags($_POST["arrival"]);
+    $origin    =  strip_tags($_POST["origin"]);
+    $destination     =  strip_tags($_POST["destination"]);
+    $capacity       =  strip_tags($_POST["capacity"]);
+    
+    $sql1 = "INSERT INTO flights (flight_no, dept_time, arri_time, origin, destination, capacity, occupied) VALUES ('{$flightNo}', '{$departure}', '{$arrival}', '{$origin}', '{$destination}', '{$capacity}', 0)"; 
+    
+    $result1 = $db->query($sql1);
+      
+    if ($sql1){  
+      $error_msg = "One Row Inserted!";
+    }
+  }
+}
+else{
+  echo "nothing input";
+} 
+$db->close();
+
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -83,13 +121,12 @@
 
   </div>
 </div>
-<!-- <div id="wrapper">
+<div id="wrapper">
   <div class="error"><?php 
   echo $error_msg; 
     // $_POST = array();
   ?></div>
-
-</div> -->
+</div>
 <div>
 <br><br><br><br><br><br>
 </div>
@@ -98,35 +135,42 @@
     <table align="center">
       <tr>
         <th scope="row"><font color="white">Flight No. *: </font></th>
-        <td><input name="position" type="text" class="form-control" required="" autofocus/></td>
+        <td><input name="flight_no" type="text" class="form-control" required="" autofocus/></td>
       </tr>
       <tr>
         <td><br></td>
       </tr>
-      <tr>
-        <th scope="row"><font color="white">Departure Time *: </font></th>
-        <td><input name="employeeID" type="text" class="form-control" required="" autofocus/></td>
-      </tr>
-      <tr>
-        <td><br></td>
-      </tr>
-      <tr>
+       <tr>
         <th scope="row"><font color="white">Origin *: </font></th>
-        <td><input type="text" name="password" class="form-control" required="" autofocus/></td>
+        <td><input type="text" name="origin" class="form-control" required="" autofocus/></td>
       </tr>
       <tr>
         <td><br></td>
       </tr>
       <tr>
         <th scope="row"><font color="white">Destination *: </font></th>
-        <td><input name="firstname" type="text" class="form-control" required="" autofocus/></td>
+        <td><input name="destination" type="text" class="form-control" required="" autofocus/></td>
+      </tr>
+      <tr>
+        <td><br></td>
+      </tr>
+      <tr>
+        <th scope="row"><font color="white">Departure Time *: </font></th>
+        <td><input name="departure" type="datetime-local"  class="form-control" required="" autofocus/></td>
+      </tr>
+      <tr>
+        <td><br></td>
+      </tr>
+      <tr>
+        <th scope="row"><font color="white">Arrival Time *: </font></th>
+        <td><input type="datetime-local" name="arrival" class="form-control" required="" autofocus/></td>
       </tr>
       <tr>
         <td><br></td>
       </tr>
       <tr>
         <th scope="row"><font color="white">Capicity *: </font></th>
-        <td><input name="lastname" type="text" class="form-control" required="" autofocus/></td>
+        <td><input name="capacity" type="integer" class="form-control" required="" autofocus/></td>
       </tr>
       <tr>
         <td><br></td>

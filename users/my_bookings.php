@@ -44,7 +44,7 @@ else{
   echo "<tr>";
 
   if ($result->num_rows > 0){
-        // echo "something selected";        
+        //echo "<h1> something here!</h1>";   
         echo "<td>Index&nbsp; &nbsp;&nbsp; &nbsp;</td>";
         echo "<td>Employee ID&nbsp; &nbsp;&nbsp; &nbsp;</td>";
         echo "<td>Passport No. &nbsp; &nbsp;&nbsp; &nbsp; </td>";
@@ -56,10 +56,14 @@ else{
         echo "</tr>";   
   while( ($row =$result->fetch_assoc()))
     {   
-
-    	$sql1 = "SELECT origin, destination, arri_time FROM flights WHERE flight_no = '{$row['flight_no']}' AND dept_time = '{$row['dept_time']}' ";
+          // echo "<h1> something here!</h1>";
+      // echo $row['flight_no'];
+      // echo $row['dept_time'];
+    $sql1 = "SELECT origin, destination, arri_time FROM flights WHERE flight_no = '{$row['flight_no']}' AND dept_time = '{$row['dept_time']}' ";
+      // echo "<br>".$sql1;
 		$result1 = $db->query($sql1);
 		if ($result1->num_rows > 0){
+          // echo "<h1> something here!</h1>";
 			$row1 =$result1->fetch_assoc();	
         	$row['index'] = $index;
         	echo "<tr>";

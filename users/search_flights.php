@@ -145,7 +145,7 @@
           </tr>
           <tr>
             <th scope="row">Origin: </th>
-            <td><input name="origin_input"  type="text"></td>
+            <td><font color='black'><input name="origin_input"  type="text"></td>
         <!-- <th scope="row">Country: </th>
         <td><select onchange="print_state('state',this.value);" id="country" name = "ori_country"></select></td>
         <th scope="row">City: </th>
@@ -157,7 +157,7 @@
         </tr>
         <tr>
           <th scope="row">Destination: </th>
-          <td><input name="destination_input" type="text"></td>
+          <td><font color='black'><input name="destination_input" type="text"></td>
         <!-- <th scope="row">Country: </th>
         <td><select onchange="print_state('state',this.value);" id="country" name = "des_country"></select></td>
         <th scope="row">City: </th>
@@ -169,14 +169,14 @@
         </tr>
         <tr>
           <th scope="row">Departure Date: </th>
-          <td><input name="departure" value="<?php echo $_SESSION['dept'];?>" type="date"></td>
+          <td><font color='black'><input name="departure" value="<?php echo $_SESSION['dept'];?>" type="date"></td>
         </tr>
         <tr>
           <td><br></td>
         </tr>
         <tr>
           <th scope="row">Return Date: </th>
-          <td><input name="return" value="<?php echo $_SESSION['rtrn'];?>" type="date"></td>
+          <td><font color='black'><input name="return" value="<?php echo $_SESSION['rtrn'];?>" type="date"></td>
         </tr>
         <tr>
           <td><br></td>

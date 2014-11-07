@@ -162,7 +162,7 @@ else{
     echo "<td>DoB:&nbsp; &nbsp;&nbsp; &nbsp;  </td>";
     echo "<td>".$row['dob']."&nbsp; &nbsp;&nbsp; &nbsp; </td>";
     echo "<td>Update DoB: &nbsp; &nbsp;&nbsp; &nbsp;  </td>";
-    echo "<td><input type='date' name='birthday'></td>";
+    echo "<td><font color='black'><input type='date' name='birthday'></td>";
     echo "</tr>";   
     echo"<tr>";
     echo"<td><br></td>";
@@ -172,7 +172,7 @@ else{
     echo "<td>email&nbsp; &nbsp;&nbsp; &nbsp;  </td>";
     echo "<td>".$row['email']."&nbsp; &nbsp;&nbsp; &nbsp; </td>";
     echo "<td>Update Email: &nbsp; &nbsp;&nbsp; &nbsp;  </td>";
-    echo "<td><input type='email' name='email'></td>";
+    echo "<td><font color='black'><input type='email' name='email'></td>";
     echo "</tr>";   
     echo"<tr>";
     echo"<td><br></td>";
@@ -182,7 +182,7 @@ else{
     echo "<td>contactNo&nbsp; &nbsp;&nbsp; &nbsp;  </td>";
     echo "<td>".$row['contactNo']."&nbsp; &nbsp;&nbsp; &nbsp; </td>";   
     echo "<td>Update Contact: &nbsp; &nbsp;&nbsp; &nbsp;  </td>";
-    echo "<td><input type='integer' name='contactNo'></td>";
+    echo "<td><font color='black'><input type='integer' name='contactNo'></td>";
     echo "</tr>";   
     echo"<tr>";
     echo"<td><br></td>";
@@ -192,7 +192,7 @@ else{
     echo "<td>address&nbsp; &nbsp;&nbsp; &nbsp;  </td>";
     echo "<td>".$row['address']."&nbsp; &nbsp;&nbsp; &nbsp; </td>";
     echo "<td>Update Address: &nbsp; &nbsp;&nbsp; &nbsp;  </td>";
-    echo "<td><input type='text' name='address'></td>";
+    echo "<td><font color='black'><input type='text' name='address'></td>";
     echo "</tr>";   
     
     echo "<tr>";
@@ -242,8 +242,8 @@ else{
      $result4 = $db->query($sql4);
    }
    if (isset($_POST['birthday']) || isset($_POST['email']) || isset($_POST['contactNo']) || isset($_POST['address'])){
-     sleep(2);
-     header("Refresh:0");	
+     // sleep(2);
+     // header("Refresh:0");	
    }
  }
  ?>
