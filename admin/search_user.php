@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 if(!isset($_SESSION['username'])){
   header('Location: ../logout.php');
 }
@@ -315,8 +316,8 @@ if(isset($_POST["delete_button"])){
     $sql1 = "DELETE FROM employee WHERE (employeeID) = '{$id}' ";
     $result = $db->query($sql1);
     if ($sql){
-      echo "<h2>One row deleted.</h2>";
-      // header("Refresh:0");
+      // echo "<h2>One row deleted.</h2>";
+      header("Refresh:0");
     }
     else{
       echo "<h2>Cannot be deleted!</h2>";
@@ -338,8 +339,8 @@ if (isset($_POST["update_button"])){
 
     $result = $db->query($sql2);
     if ($sql2){
-      echo "<h2>One row updated.</h2>";
-      // header("Refresh:0");
+      // echo "<h2>One row updated.</h2>";
+      header("Refresh:0");
     }
     else{
       echo "<h2>Cannot be updated!</h2>";
